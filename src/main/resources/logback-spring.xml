@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration debug="false">
+    <contextName>shell</contextName>
+    <property name="log.home" value="d:/logs/shell"></property>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d{HH:mm:ss.SSS} %contextName [%thread] %level %logger{36} -%msg%n
+            </pattern>
+        </layout>
+    </appender>
+    <appender name="fileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>error</level>
+            <!-- 用于配置符合过滤条件的操作 -->
+            <onMatch>DENY</onMatch>
+            <!-- 用于配置不符合过滤条件的操作 -->
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <!--按照时间的滚动策略，每天一个日志文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.home}/info/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- 默认值是 10MB,文档最大值 -->
+                <MaxFileSize>2MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <!--输出格式-->
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} %contextName [%thread] %level %logger{36} -%msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="fileError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--根据范围过滤 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!--设置过滤级别-->
+            <level>error</level>
+        </filter>
+        <!--按照时间的滚动策略，每天一个日志文件-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.home}\error\error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- 默认值是 10MB,文档最大值 -->
+                <MaxFileSize>2MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <!--输出格式-->
+        <encoder>
+            <pattern>
+                %d{HH:mm:ss.SSS} %contextName [%thread] %level %logger{36} -%msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="console"></appender-ref>
+        <appender-ref ref="fileInfo"></appender-ref>
+        <appender-ref ref="fileError"></appender-ref>
+
+    </root>
+</configuration>
