@@ -1,6 +1,7 @@
 package com.joe.shellclient.bean;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @Entity
 @Data
+@DynamicUpdate
 public class ProductCategory {
     /**
      * 类目id.

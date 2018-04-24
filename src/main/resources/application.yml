@@ -1,11 +1,26 @@
 
 server:
   port: 8080
+  context-path: /sell
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql:10.66.175.166:3306/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+    open-in-view: true
+
+#c3p0配置
+c3p0:
+  jdbcUrl: jdbc:mysql://10.66.175.166:3306/wechat?characterEncoding=utf-8&useSSL=false
+  user: root
+  password: 123456
+  driverClass: com.mysql.jdbc.Driver
+  minPoolSize: 2
+  maxPoolSize: 10
+  maxIdleTime: 1800000
+  acquireIncrement: 3
+  maxStatements: 1000
+  initialPoolSize: 3
+  idleConnectionTestPeriod: 60
+  acquireRetryAttempts: 30
+  acquireRetryDelay: 1000
+  breakAfterAcquireFailure: false
+  testConnectionOnCheckout: false
