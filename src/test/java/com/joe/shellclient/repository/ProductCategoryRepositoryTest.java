@@ -46,7 +46,7 @@ public class ProductCategoryRepositoryTest {
     @Test
     public void updateTest() {
         ProductCategory productCategory = productCategoryRepository.findOne(1);
-        productCategory.setCategoryType(2);
+        productCategory.setCategoryType(3);
 
         ProductCategory result = productCategoryRepository.save(productCategory);
         System.out.println(result);

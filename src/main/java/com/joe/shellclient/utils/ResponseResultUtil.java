@@ -13,6 +13,10 @@ public class ResponseResultUtil {
 
         return new ResponseResult(ResponseCode.SUCCESS.getCode(), msg, data);
     }
+    public static ResponseResult success(Object data) {
+
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), data);
+    }
 
     public static ResponseResult success() {
         return new ResponseResult(null, ResponseCode.SUCCESS.getMsg());

@@ -19,12 +19,14 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductVo implements Serializable {
     private static final long serialVersionUID = -7539743071966144155L;
+
     @JSONField(name = "name")
     private String categoryName;
+
     @JSONField(name = "type")
     private Integer categoryType;
 
-    @JSONField(name = "item")
+    @JSONField(name = "foods")
     private List<ProductInfoVo> list;
 
 }

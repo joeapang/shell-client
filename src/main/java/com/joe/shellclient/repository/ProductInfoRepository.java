@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface ProductInfoRepository extends JpaRepository<ProductInfo, String> {
     List<ProductInfo> findByProductStatus(Integer status, Pageable pageable);
+
+    List<ProductInfo> findByProductIdIn(List<String> id);
 }

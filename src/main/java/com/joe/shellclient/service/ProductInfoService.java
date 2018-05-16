@@ -1,6 +1,7 @@
 package com.joe.shellclient.service;
 
 import com.joe.shellclient.bean.ProductInfo;
+import com.joe.shellclient.dto.CartDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,14 +13,24 @@ import java.util.List;
  * @date: Create in 14:47 2018/4/23
  */
 public interface ProductInfoService {
-    public ProductInfo save(ProductInfo productInfo);
+    ProductInfo save(ProductInfo productInfo);
 
-    public ProductInfo findOne(String id);
+    ProductInfo findOne(String id);
 
-    public Page<ProductInfo> findAll(Pageable pageable);
+    Page<ProductInfo> findAll(Pageable pageable);
 
-    public List<ProductInfo> findAllOnSale(Pageable pageable);
+    List<ProductInfo> findAllOnSale(Pageable pageable);
 
 
-    public List<ProductInfo> findByProductStatus(Integer status,Pageable pageable);
+    List<ProductInfo> findByProductStatus(Integer status, Pageable pageable);
+
+    List<ProductInfo> findByProductIdIn(List<String> id);
+
+    //增加库存
+
+    void increaseStock(List<CartDTO> cartDTOS);
+    //减少库存
+
+    void decreaseStock(List<CartDTO> cartDTOList);
+
 }

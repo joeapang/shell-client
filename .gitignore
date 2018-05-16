@@ -30,6 +30,9 @@ target/
 #system ingore
 .DS_Store
 Thumbs.db
+mvnw
+mvnw.cmd
+
 
 ### STS ###
 .apt_generated
@@ -48,4 +51,5 @@ Thumbs.db
 /dist/
 /nbdist/
 /.nb-gradle/
+
 
