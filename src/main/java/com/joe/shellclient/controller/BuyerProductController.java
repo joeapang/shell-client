@@ -66,10 +66,6 @@ public class BuyerProductController {
             productVoList.add(productVo);
         });
         return ResponseResultUtil.success(productVoList, "成功!");
-//             new ResponseResult(1, "成功",
-//                new ProductVo("生活用品", 2,
-//                        Arrays.asList(
-//                                new ProductInfoVo("1", "牙膏",
-//                                        new BigDecimal(1.0), "生活用品", "//"))));
+
     }
 }

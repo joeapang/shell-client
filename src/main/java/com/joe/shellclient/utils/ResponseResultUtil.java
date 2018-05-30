@@ -19,7 +19,7 @@ public class ResponseResultUtil {
     }
 
     public static ResponseResult success() {
-        return new ResponseResult(null, ResponseCode.SUCCESS.getMsg());
+        return new ResponseResult(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg());
     }
 
     public static ResponseResult error(Integer code, String msg) {

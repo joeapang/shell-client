@@ -82,4 +82,12 @@ public class BuyerOrderController {
 
         return ResponseResultUtil.success(orderDTO);
     }
+
+    //取消订单
+    @PostMapping("/cancel")
+    public ResponseResult cancel(@RequestParam(value = "openid") String openid,
+                                 @RequestParam(value = "orderId") String orderId){
+        buyerService.cancelOrder(openid,orderId);
+        return ResponseResultUtil.success();
+    }
 }

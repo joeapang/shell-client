@@ -23,7 +23,10 @@ import java.util.List;
 public class OrderForm2OrderDTOConverter {
     public static OrderDTO converter(OrderForm orderForm) {
         OrderDTO orderDTO = new OrderDTO();
-        BeanUtils.copyProperties(orderForm, orderDTO);
+        orderDTO.setBuyerName(orderForm.getName());
+        orderDTO.setBuyerPhone(orderForm.getPhone());
+        orderDTO.setBuyerAddress(orderForm.getAddress());
+        orderDTO.setBuyerOpenid(orderForm.getOpenid());
         List<OrderDetail> orderDetails = new ArrayList<>();
 
         try {
